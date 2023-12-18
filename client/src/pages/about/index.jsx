@@ -1,9 +1,9 @@
 import React from 'react'
 
-function index() {
+function About() {
   return (
-    <div>index</div>
+    <div>About</div>
   )
 }
 
-export default index
+export default About

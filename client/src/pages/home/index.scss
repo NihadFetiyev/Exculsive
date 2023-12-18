@@ -1,7 +1,118 @@
-.btn{
-    color: red;
-}
-img{
-    color: black;
-    background-color: blue  ;
+#flashSales {
+    position: relative;
+    padding: 80px 0;
+    .title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        h2 {
+            font-size: 20px;
+            color: #DB4444;
+        }
+    }
+
+    .topSide {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 24px 0 40px;
+        .leftSide {
+            display: flex;
+            gap: 80px;
+            align-items: end;
+
+            h3 {
+                font-size: 36px;
+                font-weight: 600;
+                letter-spacing: 1.44px;
+
+            }
+        }
+    }
+
+    .cart {
+        height: 100%;
+
+        .imgbox {
+            width: 100%;
+            background-color: #F5F5F5;
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+
+            span {
+                color: white;
+                border-radius: 4px;
+                background: #DB4444;
+                display: inline-flex;
+                padding: 4px 12px;
+                font-weight: 200;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                left: 10px;
+                top: 10px;
+            }
+
+            .items {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                position: absolute;
+                right: 10px;
+                top: 16px;
+
+            }
+
+            .add {
+                color: white;
+                height: 0px;
+                background-color: black;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                gap: 10px;
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                transition: 0.3s;
+                opacity: 0;
+            }
+        }
+
+        &:hover {
+            .add {
+                height: 40px;
+                opacity: 1;
+            }
+        }
+
+        .subtitle {
+            padding: 20px 10px;
+
+            .price {
+                display: inline-block;
+                margin: 8px 4px;
+                color: #DB4444;
+            }
+
+        }
+    }
+    .splide{
+        position: static;
+    }
+    .SplideTrack{
+        position: static;
+    }
+    .SplideSlide{
+        position: static;
+    }
+    .splide__arrows{
+        position: absolute;
+        right: 140px;
+        top: 180px;
+        transform: translate(-50%,-50%);
+    }
 }

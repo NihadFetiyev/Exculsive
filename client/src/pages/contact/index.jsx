@@ -1,9 +1,9 @@
 import React from 'react'
 
-function index() {
+function Contact() {
   return (
-    <div>index</div>
+    <div>Contact</div>
   )
 }
 
-export default index
+export default Contact

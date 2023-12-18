@@ -1,44 +1,33 @@
+const cors = require('cors')
 const express = require('express')
+const mongoose = require('mongoose')
+
+const ProductModel = require('./src/Models/ProductModel.js')
+const UserModel = require('./src/Models/UserModel.js')
+
+const ProductRoute = require('./src/Routes/ProductRoute.js')
+const UserRoute = require('./src/Routes/UserRoute.js')
+
 const app = express()
-import mongoose from 'mongoose';
-import { Schema, model } from 'mongoose';
+const port = 4000
 
-const { Schema } = mongoose;
-const blogSchema = new Schema({
-    image:  {type: String},
-    title:  String, // String is shorthand for {type: String}
-    price: {type: String},
-    rating: {type: String},
-  });
+app.use(express.json())
+app.use(cors())
 
-  const Products = mongoose.model('Product', productSchema);
+//routers
+app.use("/products", ProductRoute);
+app.use("/users", UserRoute);
 
 
-app.get('/products', (req, res) => {
-    try {
-        const products = 
-        res.send(products)
-    } catch (error) {
-        res.status(500).send({message: error})
-    }
+app.get("*", async (req, res) => {
+    res.send("doesn't find")
 })
-app.get('/products/:id', (req, res) => {
-    try {
-        const products = 
-        res.send(products)
-    } catch (error) {
-        res.status(500).send({message: error})
-    }
-})
-app.post('/', (req, res) => {
-    res.send('Got a POST request')
-})
-app.put('/user', (req, res) => {
-    res.send('Got a PUT request at /user')
-})
-app.delete('/user', (req, res) => {
-    res.send('Got a DELETE request at /user')
-})
+mongoose.connect('mongodb+srv://nihadfatiyev:nihad123@cluster0.tygkpo2.mongodb.net/')
+    .then(() => console.log('Connected!'))
+    .catch(() => console.log('Not Connected!'))
+    
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
+
+
