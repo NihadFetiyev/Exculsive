@@ -3,15 +3,16 @@ import "./index.scss"
 import axios from "axios"
 import '@splidejs/react-splide/css';
 import { Splide, SplideTrack, SplideSlide } from '@splidejs/react-splide';
+import "../../assets/scss/utils/_variables.scss"
 function Home() {
 
-  const [product, setProduct] = useState({})
+  const [product, setProduct] = useState([])
   const [data, setData] = useState({})
 
   const GetProducts = async () => {
     const response = await axios.get("http://localhost:4000/products")
-    setProduct(response.product)
-    console.log(response);
+    setProduct(response.data)
+    console.log(response.data);
   }
 
   useEffect(() => {
@@ -86,13 +87,12 @@ function Home() {
 
               >
                 <SplideTrack>
-                  {data.product && data.product.map((item) => (
-
+                  {product && product.map((item) => (
                     <SplideSlide>
                       <div className="cart">
                         <div className="imgbox">
                           <img src={item.image} alt="" />
-                          <span>(item.discount)</span>
+                          <span>{item.discount}</span>
                           <div className="items">
                             <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <circle cx="17" cy="17" r="17" fill="white" />

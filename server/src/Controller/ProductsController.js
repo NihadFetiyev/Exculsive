@@ -1,7 +1,3 @@
-
-
-
-
 // CRUD for products
 router.get('/', async (req, res) => {
     try {
