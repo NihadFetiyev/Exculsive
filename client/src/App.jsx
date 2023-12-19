@@ -7,22 +7,23 @@ import Contact from './pages/contact';
 import About from './pages/about';
 import Error from './pages/error';
 import "./assets/scss/main.scss"
+import BasketProvider from "./context/BasketContext";
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<MainLayout />}>
-            <Route path="/contact" element={<Contact />}></Route>
-            <Route path="/about" element={<About />}></Route>
-            <Route path="/signup" element={<Signup />}></Route>
-            <Route path="/" element={<Home />}></Route>
-            <Route path="*" element={<Error />}></Route>
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </>
+      <BasketProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<MainLayout />}>
+              <Route path="/contact" element={<Contact />}></Route>
+              <Route path="/about" element={<About />}></Route>
+              <Route path="/signup" element={<Signup />}></Route>
+              <Route path="/" element={<Home />}></Route>
+              <Route path="*" element={<Error />}></Route>
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </BasketProvider>
   );
 }
 
