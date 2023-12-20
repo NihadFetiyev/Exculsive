@@ -4,10 +4,10 @@ export const BasketContext = createContext();
 
 function BasketProvider({children}) {
 
-  const [basket,setBasket]= useState([])
+  let [basket,setBasket]= useState([])
 
   function AddToBasket(item) {
-    const itemIndex = basket.findIndex(x=>x.id === item.id)
+    const itemIndex = basket.findIndex(x=>x._id === item._id)
     if (itemIndex === -1) {
       setBasket([...basket,{...item,count:1}])
       return
@@ -15,9 +15,12 @@ function BasketProvider({children}) {
     basket[itemIndex].count++
     setBasket([...basket])
   }
+  function RemoveFromBasket(item) {
+    setBasket(basket.filter(x=>x._id !== item._id ))
+  }
 
 
-  const data = {basket,setBasket,AddToBasket}
+  const data = {basket,setBasket,AddToBasket,RemoveFromBasket}
   return (
     <BasketContext.Provider value={data}>
       {children}

@@ -4,7 +4,7 @@ import { BasketContext } from '../../context/BasketContext'
 import "./index.scss"
 function Navbar() {
     const [open, setOpen] = useState(false)
-    const { basket, setBasket, AddToBasket } = useContext(BasketContext)
+    const { basket, setBasket, AddToBasket, RemoveFromBasket } = useContext(BasketContext)
     return (
         <div className='container'>
             <div className="row">
@@ -33,30 +33,34 @@ function Navbar() {
                                     <path d="M3 5H7L10 22H26" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                                     <path d="M10 16.6667H25.59C25.7056 16.6667 25.8177 16.6267 25.9072 16.5535C25.9966 16.4802 26.0579 16.3782 26.0806 16.2648L27.8806 7.26479C27.8951 7.19222 27.8934 7.11733 27.8755 7.04552C27.8575 6.97371 27.8239 6.90678 27.7769 6.84956C27.73 6.79234 27.6709 6.74625 27.604 6.71462C27.5371 6.68299 27.464 6.66661 27.39 6.66666H8" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
-                                {basket.map(x =>
-                                    <div className={`subBasket ${open ? "active" : "subBasket"}`}>
-                                        <div className="cart">
-                                            <div className="imgbox">
-                                                <img src={x.image} alt="" />
+
+                                <div className={`subBasket ${open ? "active" : "subBasket"}`}>
+                                    {basket.length === 0 ?
+                                        <h2>Nothing here</h2>
+                                        : basket.map(x =>
+                                            <div className="cart">
+                                                <div className="imgbox">
+                                                    <img src={x.image} alt="" />
+                                                </div>
+                                                <div className="info">
+                                                    <h6>{x.name}</h6>
+                                                    <span className='price'><strong>Price: </strong>{x.price}</span>
+                                                </div>
+                                                <div className="btn" onClick={() => RemoveFromBasket(x)}>x</div>
                                             </div>
-                                            <div className="info">
-                                                <h6>{x.name}</h6>
-                                                <span className='price'>{x.price}</span>
-                                            </div>
-                                            <div className="btn">x</div>
-                                        </div>
-                                        <div className="total">
-                                            <h3>Subtotal</h3>
-                                            <span className='totalPrice'>443$</span>
-                                        </div>
+                                        )
+                                    }
+                                    < div className="total">
+                                        <h3>Subtotal</h3>
+                                        <span className='totalPrice'>443$</span>
                                     </div>
-                                )}
+                                </div>
                             </div>
                         </div>
                     </nav>
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
     )
 }
 

@@ -28,7 +28,7 @@ nav {
             position: relative;
 
             .subBasket {
-                background-color: #eab65dc3;
+                background-color: #4AAFD5;
                 width: 320px;
                 height: 0px;
                 transition: 0.4s;
@@ -41,44 +41,68 @@ nav {
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
-                gap: 20px;
-
+                gap: 10px;
+                overflow-y: scroll;
                 .cart {
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                    padding: 10px;
-                    border: 2px solid #521558;
-                    background-color: #80c5b6;
+                    gap: 2px;
+                    max-width: 260px;
+                    min-height: 100px;
+                    padding: 0 12px;
+                    border: 2px solid #80C4B7;
+                    background-color: #F6EDE3;
                     border-radius: 10px;
-
+                    overflow: hidden;
+                    color: #E8BA40;
                     .imgbox {
-                        width: 120px;
+                        max-width: 80px;
 
                         img {
                             border-radius: 6px;
                         }
                     }
                 }
-                .total{
+
+                strong {
+                    color: black;
+                    font-weight: 300;
+                }
+
+                .price {
+                    color: #DB4444;
+                }
+
+                .total {
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
-                }
-                .btn{
-                    border-radius: 50%;
-                    padding: 0  8px;
                     color: white;
-                    background-color: #65210c;
-                    border: 2px solid rgb(165, 57, 57);
-                    &:hover{
-                        background-color: rgb(200, 44, 44);
+
+                    .totalPrice {
+                        font-size: 22px;
+                        font-weight: 700;
+                        color: #DB4444;
+                    }
+                }
+
+                .btn {
+                    border-radius: 50%;
+                    padding: 0 8px;
+                    color: white;
+                    background-color: rgb(193, 204, 94);
+                    border: 2px solid rgb(55, 65, 28);
+
+                    &:hover {
+                        background-color: #C7395F;
                     }
                 }
             }
+
             .active {
                 height: 400px;
-                padding: 20px;
+                padding: 16px;
             }
         }
 
