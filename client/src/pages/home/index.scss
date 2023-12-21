@@ -1,6 +1,104 @@
+//voucher section start
+#voucher {
+    padding: 120px 0 40px;
+    width: 100%;
+    height: 100%;
+
+    .sideBar {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        width: 100%;
+
+        li {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10px;
+
+            a {
+                display: inline-block;
+                width: 100%;
+            }
+
+            .subMAn,
+            .subLife {
+                height: 0;
+                transition: 0.3s;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                overflow: hidden;
+                margin-top: 10px;
+            }
+
+            .subOpenLife {
+                height: 120px;
+                padding: 16px;
+            }
+
+            .subOpenMan {
+                height: 150px;
+                padding: 16px;
+            }
+
+            .svg {
+                transition: 0.3s;
+            }
+
+            .rotate {
+                transform: rotate(90deg);
+            }
+        }
+    }
+
+    .slider {
+        background-color: black;
+        color: white;
+        display: flex;
+        align-items: center;
+        padding: 80px;
+
+        .title {
+            .apple {
+                display: flex;
+                align-items: center;
+                gap: 32px;
+            }
+
+            h1 {
+                margin: 20px 0;
+            }
+
+            .showNow {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+
+                button {
+                    display: inline;
+                    width: 84px;
+                    padding-bottom: 4px;
+                    background: none;
+                    color: rgb(183, 183, 183);
+                    border: none;
+                    border-bottom: 1px solid white;
+                }
+            }
+
+        }
+    }
+}
+
+//voucher section end
+
+//flashSales section start
 #flashSales {
     position: relative;
     padding: 80px 0;
+
     .title {
         display: flex;
         align-items: center;
@@ -17,6 +115,7 @@
         justify-content: space-between;
         align-items: center;
         margin: 24px 0 40px;
+
         .leftSide {
             display: flex;
             gap: 80px;
@@ -31,11 +130,17 @@
         }
     }
 
+    .clock {
+        font-size: 32px;
+        font-weight: 700;
+    }
+
     .cart {
         display: flex;
         flex-direction: column;
         // justify-content: space-between;
         gap: 32px;
+
         .imgbox {
             width: 100%;
             max-height: 100%;
@@ -43,10 +148,12 @@
             position: relative;
             overflow: hidden;
             border-radius: 5px;
-            img{
+
+            img {
                 width: 100%;
                 max-height: 268px;
             }
+
             span {
                 color: white;
                 border-radius: 4px;
@@ -70,6 +177,7 @@
                 top: 16px;
 
             }
+
             .add {
                 color: white;
                 height: 0px;
@@ -86,7 +194,8 @@
                 opacity: 0;
             }
         }
-        .rate{
+
+        .rate {
             display: flex;
             align-items: center;
             gap: 8px;
@@ -101,9 +210,11 @@
 
         .subtitle {
             padding: 20px 10px;
-            h6{
+
+            h6 {
                 font-size: 18px;
             }
+
             .price {
                 display: inline-block;
                 margin: 8px 12px 8px 0;
@@ -112,19 +223,104 @@
 
         }
     }
-    .splide{
+
+    .splide {
         position: static;
     }
-    .SplideTrack{
+
+    .SplideTrack {
         position: static;
     }
-    .SplideSlide{
+
+    .SplideSlide {
         position: static;
     }
-    .splide__arrows{
+
+    .splide__arrows {
         position: absolute;
         right: 140px;
         top: 180px;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%, -50%);
     }
 }
+
+//flashSales section end
+
+
+//arrival section start
+#arrival {
+    height: 100%;
+    padding: 40px 0;
+
+    .title {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-bottom: 40px;
+
+        .top {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+
+            h2 {
+                font-size: 22px;
+            }
+        }
+    }
+
+    .leftTitle,
+    .rightTitle {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        height: 100%;
+        position: absolute;
+        left: 20px;
+        bottom: 20px;
+        color: #F5F5F5;
+
+        p {
+            color: #d1d1d1;
+            margin: 10px 0;
+        }
+
+        button {
+            display: inline;
+            width: 84px;
+            padding-bottom: 4px;
+            background: none;
+            color: rgb(255, 255, 255);
+            border: none;
+            border-bottom: 1px solid white;
+        }
+    }
+
+    .rightTitle {
+        position: static;
+    }
+
+    .rightTop {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        color: white;
+        padding: 40px 20px 20px;
+        position: relative;
+
+    }
+
+    .imgbox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        position: relative;
+    }
+}
+
+//arrival section end
