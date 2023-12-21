@@ -5,9 +5,9 @@ const mongoose = require('mongoose');
 const productSchema = new mongoose.Schema({
     image: String,
     name: String, // String is shorthand for {type: String}
-    price: String,
-    discount: String,
-    discountPrice: String,
+    price: Number,
+    discount: Number,
+    discountPrice: Number,
     comment: Number,
 },{timestamps: true}
 );

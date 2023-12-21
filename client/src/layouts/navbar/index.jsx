@@ -2,22 +2,11 @@ import React, { useContext, useMemo, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { BasketContext } from '../../context/BasketContext'
 import "./index.scss"
+
 function Navbar() {
     const [open, setOpen] = useState(false)
-    const { basket, setBasket, AddToBasket, RemoveFromBasket, CheckCount, decreaseCount, increaseCount } = useContext(BasketContext)
-
-    let productCount = basket.length
-
-    const totalPrice = useMemo(() => basket ? basket.reduce((acc, item) => acc + +item.price * item.productCount, 0) : 0)
-    // function incremeent() {
-    //     setCount(count => count + 1)
-    // }
-    // function decrement() {
-    //     if (count !== 1) {
-    //         setCount(count => count - 1)
-    //     }
-    //     return
-    // }
+    const { basket, setBasket, AddToBasket, RemoveFromBasket, CheckCount, decreaseCount, increaseCount, totalPrice, setTotalPrice, productCount } = useContext(BasketContext)
+  const subTotal = basket.reduce((acc,x) => acc + x.price * x.count,0)
     return (
         <nav>
             <div className='container'>
@@ -47,15 +36,14 @@ function Navbar() {
                                         <path d="M3 5H7L10 22H26" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                                         <path d="M10 16.6667H25.59C25.7056 16.6667 25.8177 16.6267 25.9072 16.5535C25.9966 16.4802 26.0579 16.3782 26.0806 16.2648L27.8806 7.26479C27.8951 7.19222 27.8934 7.11733 27.8755 7.04552C27.8575 6.97371 27.8239 6.90678 27.7769 6.84956C27.73 6.79234 27.6709 6.74625 27.604 6.71462C27.5371 6.68299 27.464 6.66661 27.39 6.66666H8" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
-                                    <span className=' productCount'>{basket.length !==0 ? basket.length : "0"}</span>
+                                    <span className=' productCount'>{productCount}</span>
                                 </div>
                                 <div className={`subBasket ${open ? "active" : "subBasket"}`}>
                                     {basket.length === 0 ?
                                         <div className='empty'>
                                             <h2 className='d-flex align-self-center'>Nothing here!</h2>
                                         </div>
-                                        : basket.map(x => <>
-                                            {/* totalPrice += x.price * x.qunatity */}
+                                        : basket.map((x, id) => <>
                                             <div className="cart">
                                                 <div className="imgbox">
                                                     <img src={x.image} alt="" />
@@ -67,7 +55,7 @@ function Navbar() {
                                                 <div className="right">
                                                     <div className="btn" onClick={() => RemoveFromBasket(x)}>x</div>
                                                     <div className="counter">
-                                                        <button onClick={() => AddToBasket(x)}>+</button>
+                                                        <button onClick={() => increaseCount(x)}>+</button>
                                                         <span className='count'>{CheckCount(x)}</span>
                                                         <button onClick={() => decreaseCount(x)}>-</button>
                                                     </div>
@@ -78,7 +66,7 @@ function Navbar() {
                                     }
                                     < div className="total">
                                         <h3>Subtotal</h3>
-                                        <span className='totalPrice'>${totalPrice}$</span>
+                                        <span className='totalPrice'>${parseFloat(subTotal)}</span>
                                     </div>
                                 </div>
                             </div>
