@@ -2,12 +2,13 @@ import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import axios from "axios";
 import React, { useContext, useEffect, useState } from 'react';
-import "../../assets/scss/utils/_variables.scss";
 import "./index.scss";
 import { BasketContext } from '../../context/BasketContext';
 import iphone from "../../assets/images/iphone.png"
 import apple from "../../assets/images/apple.png"
 import arrowRight from "../../assets/images/arrow-right.png"
+import Button from "../../components/button"
+import Title from '../../components/title';
 
 function Home() {
 
@@ -30,11 +31,11 @@ function Home() {
     GetProducts()
   }, [])
 
-  let time  = new Date().toLocaleTimeString()
+  let time = new Date().toLocaleTimeString()
 
-  const [ctime,setTime] = useState(time)
-  const UpdateTime=()=>{
-    time =  new Date().toLocaleTimeString()
+  const [ctime, setTime] = useState(time)
+  const UpdateTime = () => {
+    time = new Date().toLocaleTimeString()
     setTime(time)
   }
   setInterval(UpdateTime);
@@ -211,12 +212,7 @@ function Home() {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <div className="title">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="40" viewBox="0 0 20 40" fill="none">
-                  <rect width="20" height="40" rx="4" fill="#DB4444" />
-                </svg>
-                <h2>Today’s</h2>
-              </div>
+              <Title>Title's</Title>
             </div>
           </div>
           <div className="row">
@@ -224,7 +220,7 @@ function Home() {
               <div className="topSide">
                 <div className="leftSide">
                   <h3>Flash Sales</h3>
-                <div className="clock">{ctime}</div>
+                  <div className="clock">{ctime}</div>
                 </div>
               </div>
             </div>
@@ -233,13 +229,10 @@ function Home() {
             <div className="col-md-12">
               <Splide hasTrack={false} aria-label="..."
                 options={{
-                  cover: true,
-                  // focus: 'center',
                   pagination: false,
                   perMove: 1,
                   type: 'loop',
                   perPage: 4,
-                  rewind: true,
                   gap: '1rem',
                   infinity: true,
                   breakpoints: {
@@ -251,6 +244,11 @@ function Home() {
                     },
                     992: {
                       perPage: 3,
+                      focus: 'center',
+                    },
+                    1200: {
+                      perPage: 3,
+                      focus: 'none',
                     },
                   }
 
@@ -302,19 +300,22 @@ function Home() {
               </Splide>
             </div>
           </div>
+          <div className="row">
+            <div className="col-md-12 d-flex justify-content-center mt-5">
+              <Button>
+                <a href="#">View All Products</a>
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
       <section id='arrival'>
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <div className="title">
-                <div className="top">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="40" viewBox="0 0 20 40" fill="none">
-                    <rect width="20" height="40" rx="4" fill="#DB4444" />
-                  </svg>
-                  <h2>Featured</h2>
-                </div>
+              <div className="top">
+                <Title>Featured
+                </Title>
                 <h3>New Arrival</h3>
               </div>
             </div>

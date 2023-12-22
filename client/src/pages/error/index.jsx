@@ -9,7 +9,9 @@ function Error() {
           <div className="col-md-12 d-flex flex-column justify-content-center align-items-center">
             <h1>404 Not Found</h1>
             <p>Your visited page not found. You may go home page.</p>
-            <Button />
+            <Button>
+              <a href="/">Back to home page</a>
+            </Button>
           </div>
         </div>
       </div>

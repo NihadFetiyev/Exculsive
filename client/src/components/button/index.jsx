@@ -1,9 +1,9 @@
 import React from 'react'
 import "./index.scss"
-function Button() {
+function Button({children,data}) {
   return (
-    <div className="btn">
-      <a href="/">Back to home page</a>
+    <div className="btn" style={data && {fontSize:data.fontsize, width:data.width, padding:data.padding, height:data.height}}>
+      <a href="/">{children}</a>
     </div>
   )
 }
