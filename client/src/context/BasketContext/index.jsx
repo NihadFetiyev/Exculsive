@@ -1,5 +1,5 @@
-import React, { createContext, useState } from 'react';
-import useLocalStorage from '../../hooks/localStorage';
+import React, { createContext } from 'react';
+import useLocalStorage from '../../hooks/useLocalStorage';
 
 export const BasketContext = createContext();
 
@@ -40,9 +40,6 @@ function BasketProvider({ children }) {
       setBasket([...basket])
     }
   }
-
-
-
   //increase count
   function increaseCount(item) {
     const findedProduct = basket.find(x => x._id === item._id)
@@ -52,7 +49,6 @@ function BasketProvider({ children }) {
       setBasket([...basket])
     }
   }
-
 
   const data = { basket, setBasket, AddToBasket, RemoveFromBasket, CheckCount, decreaseCount, increaseCount,productCount }
   return (

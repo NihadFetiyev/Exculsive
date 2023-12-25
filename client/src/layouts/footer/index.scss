@@ -1,7 +1,33 @@
 #footer {
-    background-color: rgb(0, 0, 0) !important;
     padding: 110px 0px 20px 0px;
-    .input{
+    background-color: black;
+    color: white;
+
+    ul,
+    li {
+        background-color: black;
+        color: white;
+    }
+
+    ul {
+        padding: 20px 0;
+    }
+
+    li {
+        margin: 10px 0;
+        font-size: 20px;
+    }
+
+    h5 {
+        color: white;
+    }
+
+    .part,
+    .test {
+        background-color: black;
+    }
+
+    .input {
         display: inline-flex;
         align-items: center;
         justify-content: space-between;
@@ -10,32 +36,40 @@
         border: 2px solid white;
         border-radius: 10px;
         margin-top: 20px;
-        input{
+
+        input {
             background-color: black;
             border: none;
             outline: none;
-            color: rgb(193, 193, 193);
+            color: white;
         }
     }
-    h2{
-        font-size: 20px;
-        color: white;
-    }
-    p{
-        font-size: 14px;
-        color: rgb(146, 146, 146);
-    }
-    .imgbox{
+
+
+
+    .imgbox {
         display: flex;
         flex-direction: column;
     }
-    .box{
+
+    .box {
         display: flex;
         gap: 10px;
+        background-color: black;
+        color: white;
+
     }
-    .app{
+
+    .app {
         display: flex;
         flex-direction: column;
         gap: 16px;
+        background-color: black;
+        color: white;
+
+        h2,p {
+            font-size: 20px;
+            color: white;
+        }
     }
 }

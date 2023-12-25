@@ -1,11 +1,27 @@
 :root {
-    --primarycolor1: #FFFFFF;
-    --primarycolor2: #000000;
-    --primarycolor3: #373839;
-    --textcolor1: #FFFFFF;
-    --textcolor2: #7D8184;
+    --primary1 : #FFFFFF;
+    --primary2: #000000;
+    --primary3: #373839;
+    --textColor: #7D8184;
     --secondarycolor1: #DB4444;
     --secondarycolor2: #00FF66;
     --button-hover1: #E07575;
     --button-hover2: #A0BCE0;
+}
+.dark{
+    --primary1 : rgb(0 27 7);
+    --primary2: #ffffff;
+    --textColor: #7D8184;
+    --secondarycolor1: #DB4444;
+}
+body{
+    background-color: var(--primary1);
+    color: var(--primary2);
+}
+
+h1,h2,h3,h4,h5,h6,p,a,ul,li,i,svg{
+    color: var(--primary2);
+}
+div,section,form,input,textarea{
+    background-color: var(--primary1);
 }
