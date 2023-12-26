@@ -1,5 +1,5 @@
 :root {
-    --primary1 : #FFFFFF;
+    --primary1: #FFFFFF;
     --primary2: #000000;
     --primary3: #373839;
     --textColor: #7D8184;
@@ -8,20 +8,81 @@
     --button-hover1: #E07575;
     --button-hover2: #A0BCE0;
 }
-.dark{
-    --primary1 : rgb(0 27 7);
+
+.dark {
+    --primary1: #161616;
     --primary2: #ffffff;
     --textColor: #7D8184;
     --secondarycolor1: #DB4444;
 }
-body{
+
+body {
     background-color: var(--primary1);
     color: var(--primary2);
 }
 
-h1,h2,h3,h4,h5,h6,p,a,ul,li,i,svg{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+ul,
+li,
+i,
+svg {
     color: var(--primary2);
 }
-div,section,form,input,textarea{
+
+div,
+section,
+form,
+input,
+textarea {
     background-color: var(--primary1);
+}
+
+
+input[type="checkbox"] {
+    color: white;
+    background-color: var(--secondarycolor1);
+    font-size: 32px;
+    margin-right: 20px;
+}
+
+input[type=checkbox] {
+    position: relative;
+    cursor: pointer;
+    color: white;
+}
+
+input[type=checkbox]:before {
+    color: white;
+    content: "";
+    display: block;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 0;
+    left: 0;
+    background-color: var(--secondarycolor1);
+    border-radius: 4px;
+}
+
+input[type=checkbox]:checked:after {
+    content: "";
+    display: block;
+    width: 8px;
+    height: 16px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    position: absolute;
+    top: 1px;
+    left: 9px;
+    /* background-color: var(--secondarycolor1); */
 }

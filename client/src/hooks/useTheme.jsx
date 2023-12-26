@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import useLocalStorage from "./useLocalStorage"
 
 const UseTheme = () => {
-  const [theme, setTheme] = useLocalStorage()
+  const [theme, setTheme] = useLocalStorage("theme")
   useEffect(() => {
     // localStorage.setItem("Theme", JSON.stringify(theme))
     theme ? document.body.classList.remove("dark") : document.body.classList.add("dark")
@@ -21,7 +21,7 @@ const UseTheme = () => {
     document.body.classList.remove("dark")
     setTheme(!theme)
   }
-  return {theme,AddDarkTheme,RemoveDarkTheme}
+  return [theme,AddDarkTheme,RemoveDarkTheme]
 }
 
 export default UseTheme

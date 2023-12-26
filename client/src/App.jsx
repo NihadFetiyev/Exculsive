@@ -15,6 +15,8 @@ import WishList from "./pages/wishlist";
 import PrivateRoute from "./routes/privateRoute";
 import UserPage from "./pages/userpage";
 import UserProvider from "./context/userContext";
+import ShopPage from "./pages/shop";
+import Checkout from "./pages/checkout";
 
 function App() {
 
@@ -28,12 +30,14 @@ function App() {
                 <Route path="/contact" element={<Contact />}></Route>
                 <Route path="/about" element={<About />}></Route>
                 <Route path="/detail" element={<Detail />}></Route>
+                <Route path="/checkout" element={<Checkout />}></Route>
                 <Route path="/signup" element={<Signup />}></Route>
                 <Route path="/login" element={<Login />}></Route>
                 <Route path="/" element={<Home />}></Route>
                 <Route path="*" element={<Error />}></Route>
                 <Route element={<PrivateRoute />}>
                   <Route path="/wishlist" element={<WishList />}></Route>
+                  <Route path="/shop" element={<ShopPage />}></Route>
                   <Route path="/user" element={<UserPage />}></Route>
                 </Route>
               </Route>

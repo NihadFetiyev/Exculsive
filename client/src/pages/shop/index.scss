@@ -1,0 +1,130 @@
+#shopPage {
+    padding: 200px 0;
+
+    span {
+        font-size: 20px;
+    }
+
+    .home {
+        color: var(--secondarycolor1);
+    }
+
+    ul {
+        display: flex;
+        justify-content: space-between;
+        padding: 32px;
+        margin: 20px 0;
+        border-radius: 4px;
+        box-shadow: 0px 1px 13px 0px var(--primary2);
+        font-size: 20px;
+        position: relative;
+
+        i {
+            font-size: 32px;
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            transition: 0.2s;
+            box-shadow: 0px 1px 13px 0px var(--primary2);
+
+            &:hover {
+                color: var(--secondarycolor1);
+            }
+        }
+
+        li {
+            width: 16%;
+            display: flex;
+            align-items: center;
+            color: var(--primary2);
+
+            .imgbox {
+                width: 80px;
+                box-shadow: 0px 1px 13px 0px var(--primary2);
+            }
+
+            .counter {
+                width: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 80px;
+                box-shadow: 0px 1px 13px 0px var(--primary2);
+                span {
+                    display: inline-block;
+                    width: 100%;
+                    text-align: center;
+                    border-bottom: 2px solid var(--primary2);
+                    border-top: 2px solid var(--primary2);
+                    color: var(--primary2);
+                }
+
+                button {
+                    color: var(--primary2);
+                    width: 64px;
+                    border: none;
+                    background: none;
+                    border: 2px solid var(--primary2);
+                }
+            }
+        }
+    }
+    .button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        width: 240px;
+        height: 56px;
+        background: none;
+        border: 2px solid var(--primary2);
+        box-shadow: 0px 1px 13px 0px var(--primary2);
+    }
+    .coupon{
+        display: flex;
+        align-items: center ;
+        gap: 16px;
+        span{
+            display: flex;
+            align-items: center;
+            padding: 14px;
+            border-radius: 4px;
+            font-size: 18px;
+            width: 60%;
+            border: 2px solid var(--primary2);
+            box-shadow: 0px 1px 13px 0px var(--primary2);
+        }
+    }
+    .total{
+        border: 2px solid var(--primary2);  
+        border-radius: 4px;
+        padding: 32px;
+        box-shadow: 0px 1px 13px 0px var(--primary2);
+        .subtotal{
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            li{
+                display: flex;
+                justify-content: space-between;
+                padding: 0 0 20px;
+                width: 100%;
+                border-bottom: 2px solid var(--primary2);
+            }
+        }
+        .process{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+    }
+}
+
+@media screen  and (max-width: 992px){
+    #shopPage{
+        ul{
+            width: 100%;
+        }
+    }
+}

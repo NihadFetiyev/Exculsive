@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
+  import React, { useState } from 'react'
 import "./index.scss"
 import Button from "../../components/button"
+import UseTheme from '../../hooks/useTheme'
+import { NavLink } from 'react-router-dom'
 
 function Detail() {
+  const [theme, AddDarkTheme, RemoveDarkTheme] = UseTheme()
   const [count, setcount] = useState(0)
   const [image, setImage] = useState(1)
 
@@ -26,6 +29,15 @@ function Detail() {
     <main>
       <section id='detail'>
         <div className="container">
+          <div className="row">
+            <div className="col-md-12 mb-3 py-5">
+              <NavLink to={"/"}>
+                <span className='home'>Home /</span>
+              </NavLink>
+              <span>Gaming / </span>
+              <span>Havic HV G-92 Gamepad</span>
+            </div>
+          </div>
           <div className="row">
             <div className="col-xl-6 col-lg-12 col-md-12 d-flex gap-3 flex-wrap">
               <div className="controller">

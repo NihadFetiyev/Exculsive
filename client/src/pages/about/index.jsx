@@ -3,11 +3,22 @@ import "./index.scss"
 import ServiceSection from '../../components/serviceSection'
 
 import { Splide, SplideSlide } from '@splidejs/react-splide';
+import UseTheme from '../../hooks/useTheme';
+import { NavLink } from 'react-router-dom';
 function About() {
+  const [theme, AddDarkTheme, RemoveDarkTheme] = UseTheme()
   return (
     <main>
       <section id='ourStory'>
         <div className="container">
+          <div className="row">
+            <div className="col-md-12 mb-3 py-5">
+              <NavLink to={"/"}>
+                <span className='home'>Home /</span>
+              </NavLink>
+              <span>About</span>
+            </div>
+          </div>
           <div className="row">
             <div className="col-xl-6 col-lg-12">
               <h1>Our Story</h1>

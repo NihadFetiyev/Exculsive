@@ -2,18 +2,15 @@ import React, { useContext, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { BasketContext } from '../../context/BasketContext'
 import { wishlistContext } from '../../context/WishlistContext'
-import "./index.scss"
 import { userContext } from '../../context/userContext'
-import UseTheme from '../../hooks/useTheme'
+import "./index.scss"
 
 function Navbar() {
 
-    const { theme, AddDarkTheme, RemoveDarkTheme } = UseTheme()
     const { user, setUser } = useContext(userContext)
     const [open, setOpen] = useState(false)
-    const { basket, setBasket, AddToBasket, RemoveFromBasket, CheckCount, decreaseCount, increaseCount, totalPrice, setTotalPrice, productCount } = useContext(BasketContext)
+    const { productCount } = useContext(BasketContext)
     const { wish } = useContext(wishlistContext)
-    const subTotal = basket.reduce((acc, x) => acc + x.price * x.count, 0)
 
     let wishCount = wish.length;
 
@@ -22,7 +19,7 @@ function Navbar() {
             <div className='container'>
                 <div className="row">
                     <div className="col-md-12 d-flex justify-content-between align-items-center">
-                        <h2>Exclusive</h2>
+                        <NavLink to={"/"}><h2>Exclusive</h2></NavLink>
                         <menu>
                             <NavLink to={"/"}>Home</NavLink >
                             <NavLink to={"/contact"}>Contact</NavLink >
@@ -38,12 +35,13 @@ function Navbar() {
                                 <i className='fa-regular fa-heart'></i>
                                 <span className='wishCount'>{wishCount}</span>
                             </NavLink>
-                            <div className='basket' >
-                                <div className="basketIcon">
-                                    <i class="fa-solid fa-cart-shopping" onClick={() => setOpen(!open)}></i>
+                            <NavLink to={"/shop"}>
+                                <div div className="basketIcon">
+                                    <i class="fa-solid fa-cart-shopping"></i>
                                     <span className=' productCount'>{productCount}</span>
                                 </div>
-                                <div className={`subBasket ${open ? "active" : "subBasket"}`}>
+                            </NavLink>
+                            {/* <div className={`subBasket ${open ? "active" : "subBasket"}`}>
                                     {basket.length === 0 ?
                                         <div className='empty'>
                                             <h2 className='d-flex align-self-center'>Nothing here!</h2>
@@ -73,8 +71,7 @@ function Navbar() {
                                         <h3>Subtotal</h3>
                                         <span className='totalPrice'>${parseFloat(subTotal)}</span>
                                     </div>
-                                </div>
-                            </div>
+                                </div> */}
                             {user ?
                                 <div className='logout'>
                                     <NavLink to={"/user"} className="user">
@@ -91,19 +88,11 @@ function Navbar() {
                                     <i class="fa-regular fa-user"></i>
                                 </NavLink>
                             }
-                            <div className='changeTheme'>
-                                <input type="checkbox" className="checkbox" id="checkbox" />
-                                <label htmlFor="checkbox" className="checkbox-label">
-                                    <i className="fas fa-moon" onClick={AddDarkTheme}></i>
-                                    <i className="fas fa-sun" onClick={RemoveDarkTheme}></i>
-                                    <span className="ball"></span>
-                                </label>
-                            </div>
                         </div>
                     </div>
                 </div >
             </div >
-        </nav>
+        </nav >
     )
 }
 

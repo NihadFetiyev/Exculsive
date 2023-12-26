@@ -1,19 +1,21 @@
 import React from 'react'
 import "./index.scss"
 import Button from '../../components/button'
+import UseTheme from '../../hooks/useTheme'
 
 function Signup() {
+  const [theme, AddDarkTheme, RemoveDarkTheme] = UseTheme()
   return (
     <main>
       <section id='signUp'>
         <div className="container">
           <div className="row">
-            <div className="col-md-7">
+            <div className="col-md-12 col-lg-7 d-flex align-items-center mb-4">
               <div className="imgbox">
                 <img src="https://s3-alpha-sig.figma.com/img/75f3/94c0/a1c7dc5b68a42239311e510f54d8cd59?Expires=1704067200&Signature=arb0jdLVeBEtmb-xK1CHLqsyvaaanspdkF96H9VfCfasKDpQswfOAhuSccak3p3W8vRvsIqch6F67X1Dyl9BcAQekKWqekSnzpxeu3xQi80xP1K7HoABf7sZFGXnBFhS~ulkdvZNYrBSPQV7rpbqEgKEyXM4hcw-a0VKs2vsaiJlTfImJYw3JAdF0rgYvUdQ1LxVvWkwgDLVHn~mWmyraEd7vcowLOjYYM~7V0l6~U15qKMR27WHOFLp1YhkwWeTfadhwp6n9XisXqTxlabJ0mOP7o3QYWjPjwI-xpPyCA~Qd-gj89CJNStUR69aD0L7RwfGpjCKluM-TGTacyrlDQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" alt="" />
               </div>
             </div>
-            <div className="col-md-5">
+            <div className="col-md-12 col-lg-5">
               <div className="rightSide">
                 <h2>Create an account</h2>
                 <h3>Enter your details below</h3>
@@ -21,7 +23,7 @@ function Signup() {
                   <input type="text" placeholder='Name' />
                   <input type="text" placeholder='Email or Phone Number' />
                   <input type="password" placeholder='Password' />
-                  <Button children={"Create Account"} />
+                  <button>Create Account</button>
                   <div className="google">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
                       <g clip-path="url(#clip0_2216_3336)">
@@ -40,7 +42,7 @@ function Signup() {
                   </div>
                   <div className="account">
                     <span className='already'>Already have account?</span>
-                    <span className='login'>Sign In</span>
+                    <span className='login'>Sign   In</span>
                   </div>
                 </form>
               </div>

@@ -25,12 +25,15 @@
         }
     }
 
-    .name {
+    .biography {
+        display: flex;
+        flex-direction: column;
         width: 100%;
 
         .box {
             display: flex;
             align-items: center;
+            justify-content: space-between;
             width: 100%;
             gap: 20px;
 
@@ -38,10 +41,10 @@
                 display: flex;
                 flex-direction: column;
                 gap: 12px;
+                width: 50%;
             }
 
             .minibox {
-                width: 380px;
                 height: 64px;
                 border-radius: 4px;
                 background: var(--primary1);
@@ -51,6 +54,7 @@
                 padding: 0 32px;
                 color: var(--primary2);
                 margin-bottom: 10px;
+                box-shadow: 0px 1px 13px 0px var(--primary2);
             }
         }
 
@@ -72,6 +76,7 @@
                 border: 2px solid var(--primary2);
                 color: var(--primary2);
                 height: 64px;
+                box-shadow: 0px 1px 13px 0px var(--primary2);
             }
         }
 

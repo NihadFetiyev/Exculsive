@@ -3,19 +3,21 @@ import axios from "axios";
 import "./index.scss"
 import { wishlistContext } from '../../context/WishlistContext'
 import { BasketContext } from '../../context/BasketContext';
+import UseTheme from '../../hooks/useTheme';
 function WishList() {
 
+  const [theme, AddDarkTheme, RemoveDarkTheme] = UseTheme()
   const { basket, setBasket, AddToBasket } = useContext(BasketContext)
   const { wish, setWish, addTOWish, deleteFromWish } = useContext(wishlistContext)
 
-  // let wishCount = wish.length;
+  let wishCount = wish.length;
   return (
     <main>
       <section id='wishlist'>
         <div className="container">
           <div className="row">
             <div className="col-md-12 d-flex justify-content-between align-items-center mb-5">
-              {/* <h3>Wishlist<span>({wishCount})</span></h3> */}
+              <h3>Wishlist<span>({wishCount})</span></h3>
               <button>Move All To Bag</button>
             </div>
           </div>

@@ -12,8 +12,13 @@ import { BasketContext } from '../../context/BasketContext';
 import { wishlistContext } from '../../context/WishlistContext';
 import "./index.scss";
 import { useTranslation } from 'react-i18next';
+import UseTheme from '../../hooks/useTheme';
 
 function Home() {
+
+  //theme
+  const [theme,AddDarkTheme,RemoveDarkTheme] = UseTheme()
+
   //states
   const [product, setProduct] = useState([])
   const [openMan, setOpenMan] = useState(false)
@@ -54,24 +59,35 @@ function Home() {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 2000);
+    }, 800);
   }, [])
 
-  // if (isLoading) {
-  //   return <Loading />;
-  // }
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <main>
       <div className="header d-flex justify-content-center align-items-center">
         <p>{t("desc")}
-          <span>{t('title')}</span></p>
-        <div className="lang">
-          <button onClick={() => setOpen(!open)}>English</button>
-          <ul className={open ? "display" : ""}>
-            <li onClick={() => changeLang("en")}>En</li>
-            <li onClick={() => changeLang("ru")}>Ru</li>
-            <li onClick={() => changeLang("az")}>AZ</li>
-          </ul>
+          <span>{t('title')}</span>
+        </p>
+        <div className="extrasize d-flex">
+          <div className="lang">
+            <button onClick={() => setOpen(!open)}>English</button>
+            <ul className={open ? "display" : ""}>
+              <li onClick={() => changeLang("en")}>En</li>
+              <li onClick={() => changeLang("ru")}>Ru</li>
+              <li onClick={() => changeLang("az")}>AZ</li>
+            </ul>
+          </div>
+          <div className='changeTheme'>
+            <input type="checkbox" className="checkbox" id="checkbox" />
+            <label htmlFor="checkbox" className="checkbox-label">
+              <i className="fas fa-moon" onClick={AddDarkTheme}></i>
+              <i className="fas fa-sun" onClick={RemoveDarkTheme}></i>
+              <span className="ball"></span>
+            </label>
+          </div>
         </div>
       </div>
       <section id='voucher'>

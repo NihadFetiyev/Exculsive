@@ -1,0 +1,135 @@
+#checkout {
+    padding: 80px 0 80px;
+
+    .box {
+        display: flex;
+        flex-direction: column;
+        margin: 32px 0;
+        gap: 32px;
+
+        span {
+            font-size: 20px;
+        }
+
+        li {
+            .minibox {
+                margin-top: 10px;
+                width: 100%;
+                height: 56px;
+                border-radius: 4px;
+                background: var(--primary1);
+                box-shadow: 0px 1px 13px 0px var(--primary2);
+            }
+        }
+    }
+
+    .input {
+        display: flex;
+        align-items: start;
+
+        span {
+            font-size: 18px;
+        }
+    }
+
+    .basket {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px;
+        border-radius: 4px;
+        font-size: 20px;
+        position: relative;
+
+
+        li {
+            display: flex;
+            align-items: center;
+            color: var(--primary2);
+            justify-content: end;
+
+            .imgbox {
+                width: 80px;
+            }
+        }
+
+        .imgName {
+            width: 100%;
+            display: flex;
+            gap: 32px;
+            justify-content: start;
+        }
+    }
+
+    .subtotal {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        margin-top: 20px;
+
+        .totalBox {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--primary2);
+            padding-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .cash {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .bank {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 20px;
+        }
+
+        .round {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border: 2px solid var(--primary2);
+            border-radius: 50%;
+
+            .miniround {
+                display: none;
+                border-radius: 50%;
+                width: 24px;
+                height: 24px;
+                background-color: var(--primary2);
+            }
+            .display{
+                display: flex;
+            }
+        }
+
+        .coupon {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 4px;
+            gap: 20px;
+
+            .code {
+                padding: 14px 20px;
+                border: 2px solid var(--primary2);
+                color: var(--primary2);
+                width: 60%;
+                height: 56px;
+
+            }
+        }
+
+        .order {
+            display: flex;
+        }
+    }
+}
