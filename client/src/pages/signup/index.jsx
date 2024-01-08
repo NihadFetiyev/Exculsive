@@ -1,10 +1,33 @@
-import React from 'react'
-import "./index.scss"
-import Button from '../../components/button'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import UseTheme from '../../hooks/useTheme'
+import "./index.scss"
 
 function Signup() {
   const [theme, AddDarkTheme, RemoveDarkTheme] = UseTheme()
+  const [inpUser, setinpUser] = useState()
+  const [InpPassword, setInpPassword] = useState()
+  const navigate = useNavigate()
+  function HandleSignUp(e) {
+    e.preventDefault()
+    fetch("http://localhost:3000/register",
+      {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username: inpUser, password: InpPassword }),
+      }
+    )
+      .then(res => res.json())
+      .then(data => {
+        navigate("/login")
+        console.log(data);
+      }
+      )
+      .catch(err => console.log(err))
+  }
+
   return (
     <main>
       <section id='signUp'>
@@ -19,10 +42,10 @@ function Signup() {
               <div className="rightSide">
                 <h2>Create an account</h2>
                 <h3>Enter your details below</h3>
-                <form action="">
-                  <input type="text" placeholder='Name' />
+                <form action="" onSubmit={HandleSignUp}>
+                  <input type="text" placeholder='Name'value={inpUser} onChange={(e) => setinpUser(e.target.value)} />
                   <input type="text" placeholder='Email or Phone Number' />
-                  <input type="password" placeholder='Password' />
+                  <input type="password" placeholder='Password'  value={InpPassword} onChange={(e) => setInpPassword(e.target.value)} />
                   <button>Create Account</button>
                   <div className="google">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">

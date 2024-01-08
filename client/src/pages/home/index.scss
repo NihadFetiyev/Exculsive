@@ -136,7 +136,6 @@
         display: flex;
     }
 }
-
 //voucher section start
 #voucher {
     padding: 64px 0 40px;
@@ -262,16 +261,14 @@
 
             img {
                 background-color: inherit;
-                background: white;
+                // background: white;
             }
         }
     }
 }
-
 //voucher section end
 
 //flashSales section start
-
 #flashSales,
 #bestSelling,
 #ourProducts {
@@ -397,11 +394,9 @@
         }
     }
 }
-
 //flashSales section end
 
 //enhance section start
-
 #enhance {
     padding: 0 0 40px;
 
@@ -464,7 +459,6 @@
     }
 
 }
-
 @media screen and (max-width: 992px) {
     #enhance {
         .mainSide {
@@ -485,17 +479,14 @@
         }
     }
 }
-
 @media screen and (max-width: 768px) {
     .splide__arrows {
         display: none;
     }
 }
-
 //enhance section end
 
 //categories section start
-
 #categories {
     .heading {
         margin-bottom: 60px;
@@ -537,7 +528,6 @@
         }
     }
 }
-
 //categories section end
 
 .splide__arrows {
@@ -574,8 +564,6 @@
 #arrival {
     height: 100%;
     padding: 40px 0;
-
-
     .top {
         display: flex;
         gap: 20px;
@@ -587,10 +575,10 @@
         }
     }
 
-    div {
+    // div {
 
-        background-color: none;
-    }
+    //     background-color: none;
+    // }
 
     .leftTitle,
     .rightTitle {
@@ -601,15 +589,15 @@
         position: absolute;
         left: 20px;
         bottom: 20px;
-        color: var(--primary1);
+        color: var(--primary2);
         background: none;
 
         h3 {
-            color: var(--primary1);
+            color: var(--primary2);
         }
 
         p {
-            color: var(--primary1);
+            color: var(--primary2);
             margin: 10px 0;
         }
 
@@ -619,7 +607,7 @@
             padding-bottom: 4px;
             background: none;
             // color: rgb(255, 255, 255);
-            color: var(--primary1);
+            color: var(--primary2);
             border: none;
             border-bottom: 1px solid white;
         }
@@ -634,7 +622,7 @@
         align-items: center;
         width: 100%;
         height: 100%;
-        background-color: var(--primary2);
+        background-color: var(--primary );
         color: var(--primary2);
         padding: 40px 20px 20px;
         position: relative;
@@ -648,9 +636,8 @@
         align-items: center;
         width: 100%;
         height: 100%;
-        background-color: var(--primary2);
+        background-color: var(--primary1);
         position: relative;
     }
 }
-
 //arrival section end

@@ -17,7 +17,7 @@ import UseTheme from '../../hooks/useTheme';
 function Home() {
 
   //theme
-  const [theme,AddDarkTheme,RemoveDarkTheme] = UseTheme()
+  const [theme, AddDarkTheme, RemoveDarkTheme] = UseTheme()
 
   //states
   const [product, setProduct] = useState([])
@@ -35,9 +35,9 @@ function Home() {
   }
   //axios
   const GetProducts = async () => {
-    const response = await axios.get("http://localhost:4000/products")
+    const response = await axios.get("http://localhost:3000/products")
     setProduct(response.data)
-    console.log(response.data);
+    console.log(response.data)
   }
 
   useEffect(() => {

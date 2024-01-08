@@ -7,7 +7,7 @@ import "./index.scss"
 
 function Navbar() {
 
-    const { user, setUser } = useContext(userContext)
+    const { token, setToken, decodedToken, setDecodedToken, removeToken } = useContext(userContext)
     const [open, setOpen] = useState(false)
     const { productCount } = useContext(BasketContext)
     const { wish } = useContext(wishlistContext)
@@ -41,44 +41,13 @@ function Navbar() {
                                     <span className=' productCount'>{productCount}</span>
                                 </div>
                             </NavLink>
-                            {/* <div className={`subBasket ${open ? "active" : "subBasket"}`}>
-                                    {basket.length === 0 ?
-                                        <div className='empty'>
-                                            <h2 className='d-flex align-self-center'>Nothing here!</h2>
-                                        </div>
-                                        : basket.map((x, id) => <>
-                                            <div className="cart" key={id}>
-                                                <div className="imgbox">
-                                                    <img src={x.image} alt="" />
-                                                </div>
-                                                <div className="info">
-                                                    <h6>{x.name}</h6>
-                                                    <span className='price'><strong>Price: </strong>{x.price}</span>
-                                                </div>
-                                                <div className="right">
-                                                    <div className="btn" onClick={() => RemoveFromBasket(x)}>x</div>
-                                                    <div className="counter">
-                                                        <button onClick={() => increaseCount(x)}>+</button>
-                                                        <span className='count'>{CheckCount(x)}</span>
-                                                        <button onClick={() => decreaseCount(x)}>-</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </>
-                                        )
-                                    }
-                                    < div className="total">
-                                        <h3>Subtotal</h3>
-                                        <span className='totalPrice'>${parseFloat(subTotal)}</span>
-                                    </div>
-                                </div> */}
-                            {user ?
+                            {decodedToken ?
                                 <div className='logout'>
                                     <NavLink to={"/user"} className="user">
                                         <i class="fa-regular fa-user"></i>
                                     </NavLink>
-                                    <span>{user.name}</span>
-                                    <div onClick={() => setUser(null)} className="exit">
+                                    <span>{decodedToken.username}</span>
+                                    <div onClick={removeToken} className="exit">
                                         <i class="fa-solid fa-arrow-right-from-bracket"></i>
                                         <button>log out</button>
                                     </div>
@@ -88,6 +57,7 @@ function Navbar() {
                                     <i class="fa-regular fa-user"></i>
                                 </NavLink>
                             }
+                            {decodedToken && decodedToken.role === "Admin" ? <NavLink to={"/admin"} >Admin</NavLink> : null}
                         </div>
                     </div>
                 </div >

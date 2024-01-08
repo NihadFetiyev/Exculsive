@@ -1,33 +1,34 @@
-const cors = require('cors')
-const express = require('express')
-const mongoose = require('mongoose')
-
-const ProductModel = require('./src/Models/ProductModel.js')
-const UserModel = require('./src/Models/UserModel.js')
-
-const ProductRoute = require('./src/Routes/ProductRoute.js')
-const UserRoute = require('./src/Routes/UserRoute.js')
+import bodyParser from 'body-parser'
+import cors from 'cors'
+import dotenv from 'dotenv'
+import express from 'express'
+import mongoose from 'mongoose'
+import { AuthRoute } from './src/Routes/authRoute.js'
+import { UserRoute } from './src/Routes/userRoute.js'
+import { ProductRouter } from './src/routes/ProductRoute.js'
 
 const app = express()
-const port = 4000
 
 app.use(express.json())
+// app.use(express.json())
 app.use(cors())
+app.use(bodyParser.json())
 
-//routers
-app.use("/products", ProductRoute);
-app.use("/users", UserRoute);
+dotenv.config()
+
+app.use("/", AuthRoute)
+app.use("/", UserRoute)
+app.use("/", ProductRouter)
 
 
-app.get("*", async (req, res) => {
-    res.send("doesn't find")
-})
-mongoose.connect('mongodb+srv://nihadfatiyev:nihad123@cluster0.tygkpo2.mongodb.net/')
-    .then(() => console.log('Connected!'))
-    .catch(() => console.log('Not Connected!'))
-    
+
+const port = process.env.PORT
+const url = process.env.CONNECTION_URL.replace("<password>", process.env.PASSWORD)
+
+mongoose.connect(url)
+    .then(() => console.log("connected"))
+    .catch(error => console.log(error))
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
-
-
